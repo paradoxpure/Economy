@@ -1,0 +1,66 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Economy {
+    int bal;
+    public void daily(int daily){
+        bal = bal + daily;
+        System.out.println("500₹ Successfully Added to your Balance");
+    }
+    public void work(int work){
+        bal = bal + work;
+    }
+    public void crime(int crime){
+        bal = bal + crime;
+    }
+    public void bal(){
+        System.out.println("| Balance |" + bal+"₹ |");
+    }
+    public void help(){
+        System.out.println("|------MY------|");
+        System.out.println("| daily | bal  |");
+        System.out.println("| work  | crime|");
+        System.out.println("|---COMMANDS---|");
+    }
+    public static void main(String[] args) {
+        Random rand = new Random();
+        String[] Word2 = {"PM" , "Animal" , "Dog" , "YourSelf" , "Alien"};
+        String[] Word = {"home" , "company" , "shop" , "Google" , "Microsoft" , "hospital"};
+
+        Economy cmd = new Economy();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("|-----------MY---------|");
+        System.out.println("| MY NAME | MAN-HIT    |");
+        System.out.println("|  I'M    | ECONOMY BOT|");
+        System.out.println("|  PREFIX |     -      |");
+        System.out.println("|--------DETAILS-------|");
+        String prefix = "-";
+        while (true) {
+            String randWord = Word[rand.nextInt(Word.length)];
+            String randWord2 = Word2[rand.nextInt(Word2.length)];
+            String input = sc.nextLine();
+            if (input.equals(prefix + ("daily"))) {
+                int daily = 500;
+                cmd.daily(daily);
+            } else if (input.equals(prefix + ("bal"))) {
+                cmd.bal();
+            } else if (input.equals(prefix + ("help"))) {
+                cmd.help();
+            } else if (input.equals(prefix + ("work"))) {
+                int work = 150;
+                System.out.println("| You worked at " + randWord + " | and | earned 150₹ which is Successfully Added to your Balance |");
+                cmd.work(work);
+            } else if (input.equals(prefix + ("crime"))) {
+                int crime = 420;
+                System.out.println("| You killed " + randWord2 + " | and | earned 420₹ which is Successfully Added to your Balance |");
+                cmd.crime(crime);
+            } else if (input.equals("hello")) {
+                System.out.println("Hello my prefix is -");
+            } else if (input.equals("help")) {
+                System.out.println("Sorry use prefix -");
+            } else {
+                System.out.println("Your format is incorrect.\nUse this cmd -help");
+            }
+        }
+    }
+}
