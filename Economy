@@ -19,6 +19,7 @@ public class Economy {
     public void help(){
         System.out.println("|------MY------|");
         System.out.println("| daily | bal  |");
+        System.out.println("| chat  | exit |");
         System.out.println("| work  | crime|");
         System.out.println("|---COMMANDS---|");
     }
@@ -47,17 +48,86 @@ public class Economy {
             } else if (input.equals(prefix + ("help"))) {
                 cmd.help();
             } else if (input.equals(prefix + ("work"))) {
-                int work = 150;
-                System.out.println("| You worked at " + randWord + " | and | earned 150₹ which is Successfully Added to your Balance |");
-                cmd.work(work);
+                switch (randWord){
+                    case "home":
+                        int workHome = 444;
+                        System.out.println("| You worked at " + randWord + " | and | earned "+ workHome+" which is Successfully Added to your Balance |");
+                        cmd.crime(workHome);
+                    case "company":
+                        int workCom = 333;
+                        System.out.println("| You worked at " + randWord + " | and | earned "+ workCom+" which is Successfully Added to your Balance |");
+                        cmd.crime(workCom);
+                        break;
+                    case "shop":
+                        int workShop = 222;
+                        System.out.println("| You worked at " + randWord + " | and | earned "+ workShop+" which is Successfully Added to your Balance |");
+                        cmd.crime(workShop);
+                        break;
+                    case "Google":
+                        int workGoogle = 50;
+                        System.out.println("| You worked at " + randWord + " | and | earned "+ workGoogle+" which is Successfully Added to your Balance |");
+                        cmd.crime(workGoogle);
+                        break;
+                    case "Microsoft":
+                        int workMicro = 40;
+                        System.out.println("| You worked at " + randWord + " | and | earned "+ workMicro+" which is Successfully Added to your Balance |");
+                        cmd.crime(workMicro);
+                        break;
+                    case "hospital":
+                        int workHospital = 108;
+                        System.out.println("| You worked at " + randWord + " | and | earned "+ workHospital+" which is Successfully Added to your Balance |");
+                        cmd.crime(workHospital);
+                        break;
+                }
             } else if (input.equals(prefix + ("crime"))) {
-                int crime = 420;
-                System.out.println("| You killed " + randWord2 + " | and | earned 420₹ which is Successfully Added to your Balance |");
-                cmd.crime(crime);
-            } else if (input.equals("hello")) {
-                System.out.println("Hello my prefix is -");
-            } else if (input.equals("help")) {
-                System.out.println("Sorry use prefix -");
+                switch(randWord2) {
+                    case "PM" -> {
+                        int crimePM = 444;
+                        System.out.println("| You killed " + randWord2 + " | and | earned "+ crimePM +" which is Successfully Added to your Balance |");
+                        cmd.crime(crimePM);
+                    }
+                    case "Animal" -> {
+                        int crimeAnimal = 333;
+                        System.out.println("| You killed " + randWord2 + " | and | earned "+ crimeAnimal +" which is Successfully Added to your Balance |");
+                        cmd.crime(crimeAnimal);
+                    }
+                    case "Dog" -> {
+                        int crimeDog = 222;
+                        System.out.println("| You killed " + randWord2 + " | and | earned "+ crimeDog +" which is Successfully Added to your Balance |");
+                        cmd.crime(crimeDog);
+                    }
+                    case "Alien" -> {
+                        int crimeAlien = 111;
+                        System.out.println("| You killed " + randWord2 + " | and | earned "+ crimeAlien +" which is Successfully Added to your Balance |");
+                        cmd.crime(crimeAlien);
+                    }
+                    default -> {
+                        int crimeYourSelf = 0;
+                        System.out.println("| You killed " + randWord2 + " | and | earned "+ crimeYourSelf +" which is Successfully Added to your Balance |");
+                        cmd.crime(crimeYourSelf);
+                    }
+                }
+            } else if (input.equals(prefix + "chat")) {
+                boolean is_true = true;
+                while(true) {
+                    String chatInput = sc.nextLine();
+                    if (chatInput.equals("hello")) {
+                        System.out.println("Hello, sir How Are You?");
+                    } else if (chatInput.equals("i am fine")) {
+                        System.out.println("Oh Great :)");
+                    } else if (chatInput.equals("how are you are?")) {
+                        System.out.println("As A AI Model I always Fine");
+                    } else if (chatInput.equals("what can you?")) {
+                        System.out.println("LoL , You don't Know? type -help");
+                    } else if (chatInput.equals("-help")) {
+                        cmd.help();
+                        System.out.println("NOTE : You have to restart for using cmd");
+                    } else {
+                        System.out.println("Check your spelling , Use proper english line , use symbols like ,.?");
+                    }
+                }
+            } else if (input.equals(prefix + "exit")) {
+                System.exit(0);
             } else {
                 System.out.println("Your format is incorrect.\nUse this cmd -help");
             }
